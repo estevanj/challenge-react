@@ -1,9 +1,9 @@
 import Layout from '../components/Layout'
-import LoginView from '@view/Login'
+import HomeView from '@view/Home'
 
 const IndexPage = () => (
-  <Layout title="Login">
-       <LoginView></LoginView>
+  <Layout title="Home">
+    <HomeView />
   </Layout>
 )
 
