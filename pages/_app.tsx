@@ -1,10 +1,11 @@
-import React from 'react';
+import React from 'react'
 import { AppProps } from 'next/app'
-import {ProvideAuth} from '../utils/auth';
+import { ProvideAuth } from '../utils/auth'
 
-
-export default ({Component, pageProps}:AppProps) => (
+export default ({ Component, pageProps }: AppProps) => {
+  return (
     <ProvideAuth>
-    <Component {...pageProps} />
+      <Component {...pageProps} />
     </ProvideAuth>
-);
+  )
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { useAuth } from '../../utils/auth'
 import Table from '../../components/Table'
@@ -24,47 +24,62 @@ const HomeView = () => {
   }
 
   return (
-    <WrapperHome>
-      <Container>
-        <Row>
-          <Col sm={12} md={12} lg={12}>
-            <WrapperLogout>
-              <Button
-                onClick={() => {
-                  handleLogouth()
-                }}
-                backgroundColor={'#03e9f4'}
-                color={'#FFFFFF'}
-                borderColor={'#03e9f4'}
-              >
-                Logout
-              </Button>
-            </WrapperLogout>
-          </Col>
-        </Row>
+    <Fragment>
+      {auth.userId !== '' ? (
+        <WrapperHome>
+          <Container>
+            <Row>
+              <Col sm={12} md={12} lg={12}>
+                <WrapperLogout>
+                  <Button
+                    onClick={() => {
+                      handleLogouth()
+                    }}
+                    backgroundColor={'#03e9f4'}
+                    color={'#FFFFFF'}
+                    borderColor={'#03e9f4'}
+                  >
+                    Logout
+                  </Button>
+                </WrapperLogout>
+              </Col>
+            </Row>
 
-        <Row>
-          <Col sm={12} md={12} lg={12}>
-            <WrapperAdd>
-              <Button
-                onClick={() => {
-                  setIsOpen(true)
-                }}
-                backgroundColor={'none'}
-                color={'#FFFFFF'}
-                borderColor={'#03e9f4'}
-              >
-                New Pokemon
-              </Button>
-            </WrapperAdd>
-          </Col>
-          <Col sm={12} md={12} lg={12}>
-            <Table />
-          </Col>
-        </Row>
-        <ModalForm modalIsOpen={modalIsOpen} closeModal={setIsOpen}></ModalForm>
-      </Container>
-    </WrapperHome>
+            <Row>
+              <Col sm={12} md={12} lg={12}>
+                <WrapperAdd>
+                  <Button
+                    onClick={() => {
+                      setIsOpen(true)
+                    }}
+                    backgroundColor={'none'}
+                    color={'#FFFFFF'}
+                    borderColor={'#03e9f4'}
+                  >
+                    New Pokemon
+                  </Button>
+                </WrapperAdd>
+              </Col>
+              <Col sm={12} md={12} lg={12}>
+                <Table />
+              </Col>
+            </Row>
+            <ModalForm
+              modalIsOpen={modalIsOpen}
+              closeModal={setIsOpen}
+            ></ModalForm>
+          </Container>
+        </WrapperHome>
+      ) : (
+        <Container>
+          <Row>
+            <Col sm={12} md={12} lg={12}>
+              <h1 style={{ color: 'white' }}> Not authorized</h1>
+            </Col>
+          </Row>
+        </Container>
+      )}
+    </Fragment>
   )
 }
 

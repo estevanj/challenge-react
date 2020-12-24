@@ -1,13 +1,12 @@
 import styled from 'styled-components'
-//import sizes from '../../styles/media'
-
+import sizes from '../../styles/media'
 
 export const WrapperLogin = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 400px;
-  padding: 40px;
+  width: 100%;
+  padding: 25px;
   transform: translate(-50%, -50%);
   background: rgba(0,0,0,.5);
   box-sizing: border-box;
@@ -19,6 +18,11 @@ export const WrapperLogin = styled.div`
   left: 0;
   color: #03e9f4;
   font-size: 12px;
+}
+
+@media ${sizes.md} {
+  width: 400px;
+  padding: 40px;
 }
 
 }
@@ -72,4 +76,3 @@ background: none;
 border: 1px solid #03e9f4;
 }
 `
-
