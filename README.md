@@ -4,12 +4,12 @@ This a project with login and form to register pokemons.
 
 ## Tools
 
-** Next
-** React
-** Typescript
-** Firebase
-** pokedex-promise-v2
-** Cypress
+- Next
+- React
+- Typescript
+- Firebase
+- pokedex-promise-v2
+- Cypress
 
 ## Start Proyect
 
